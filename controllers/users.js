@@ -1,5 +1,6 @@
 const { ObjectId } = require("bson");
 const Api404Error = require("../api404Error");
+const BaseError = require("../baseError");
 const mongodb = require("../db/connection");
 
 /* Returns a list of users */
@@ -45,11 +46,29 @@ const getUserId = async (req, res, next) => {
 const addUser = async (req, res) => {
   try {
     const result = await mongodb.getDb().db("userExample").collection("users");
-    result.insertOne(req.body).then((newContact) => {
+    const findUser = await mongodb
+      .getDb()
+      .db("userExample")
+      .collection("users")
+      .find({ user: req.body.user });
+
+    result.insertOne(req.body).then((newUser) => {
+      console.log(req.body.user);
+      findUser.toArray().then((user) => {
+        if (user[0].user === req.body.user) {
+          console.log(user);
+          throw new BaseError(
+            "Duplicate User",
+            500,
+            false,
+            "Cannot add user with same name"
+          );
+        }
+      });
       res.setHeader("Content-Type", "application/json");
-      res.status(201).json(newContact);
+      res.status(201).json(newUser);
     });
-  } catch {
+  } catch (error) {
     console.log(error);
   }
 };
