@@ -1,0 +1,23 @@
+{
+  "name": "backend-subitt",
+  "version": "1.0.0",
+  "description": "Demonstration of backend development with error handling and the utilization of REST API.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Dallin Gilbert",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.3",
+    "mongodb": "^5.0.1"
+  }
+}

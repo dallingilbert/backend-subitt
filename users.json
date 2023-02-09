@@ -1,0 +1,23 @@
+
+{
+    "user": "dallyllama",
+    "email": "dallyllama@hotmail.com",
+    "favoriteColor": "green",
+    "numFriends": 24,
+    "friendsList": [{
+        "saltyveins": {
+            "id": 1,
+            "numFriends": 18,
+            "email": "saltyveins@gmail.com",
+            "favoriteColor": "red",
+            "dateAdded": "February 8, 2023"
+        },
+        "zvmbie": {
+            "id": 2,
+            "numFriends": 30,
+            "email": "zvmbie@gmail.com",
+            "favoriteColor": "blue",
+            "dateAdded": "January 21, 2023"
+        }
+    }]
+}
